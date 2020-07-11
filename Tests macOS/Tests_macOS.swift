@@ -3,7 +3,7 @@
 //  Tests macOS
 //
 //  Created by Sanjay Sampat on 30/06/20.
-//  Modified to add to git
+//
 
 import XCTest
 
