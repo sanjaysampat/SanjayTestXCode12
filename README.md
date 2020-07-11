@@ -2,10 +2,10 @@
 Common project creation to learn.
 
 ## Version
-## 1.0
+1.0
 
 1. SwiftUI project.
-    * Test controls
+    * Test code for various controls
     
 1. GIT integration
     * Added Project to GIT from XCode 12 Beta
