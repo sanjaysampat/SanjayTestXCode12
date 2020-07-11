@@ -38,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		72450F2624B99D4C00934892 /* SwiftUIViewPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewPhotoPicker.swift; sourceTree = "<group>"; };
+		72450F2B24B9E0A700934892 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7274EB3024AB96290046FF69 /* SanjayTestXCode12App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanjayTestXCode12App.swift; sourceTree = "<group>"; };
 		7274EB3124AB96290046FF69 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7274EB3224AB96510046FF69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		7274EB2A24AB96250046FF69 = {
 			isa = PBXGroup;
 			children = (
+				72450F2B24B9E0A700934892 /* README.md */,
 				7274EB2F24AB96290046FF69 /* Shared */,
 				7274EB3924AB96510046FF69 /* iOS */,
 				7274EB4024AB96510046FF69 /* macOS */,
