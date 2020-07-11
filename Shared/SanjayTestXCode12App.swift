@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct SanjayTestXCode12App: App {
+    @StateObject private var imageStore = ImageStore()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView( imageStore: imageStore )
         }
     }
 }

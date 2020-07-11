@@ -11,6 +11,8 @@ import PhotosUI
 struct ContentView: View {
     
     @State private var isPresented: Bool = false
+    @State var imageArray: [UIImage]?
+    @ObservedObject var imageStore: ImageStore
     
     var body: some View {
         
@@ -25,12 +27,23 @@ struct ContentView: View {
                 .multilineTextAlignment(.trailing)
                 .font(/*@START_MENU_TOKEN@*/.body/*@END_MENU_TOKEN@*/)
             
-            Button("Present Picker") {
-                        isPresented.toggle()
-                    }.sheet(isPresented: $isPresented) {
-                        let configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
-                        SwiftUIViewPhotoPicker(configuration: configuration, isPresented: $isPresented)
+            HStack {
+                Button("Select Image") {
+                            isPresented.toggle()
+                        }.sheet(isPresented: $isPresented) {
+                            let configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
+                            SwiftUIViewPhotoPicker(configuration: configuration, isPresented: $isPresented, imageArray : $imageArray )
                     }
+                /*
+                Button("Select Multi Images") {
+                            isPresented.toggle()
+                        }.sheet(isPresented: $isPresented) {
+                            var configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
+                            configuration.selectionLimit = 0
+                            SwiftUIViewPhotoPicker(configuration: configuration, isPresented: $isPresented, imageArray : $imageArray )
+                    }
+                */
+            }
 
                 
         }
@@ -42,6 +55,13 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        /*
+        var imageArray: [UIImage]?
+        if let image = UIImage(named: "default") {
+            imageArray?.append(image)
+        }
+        */
+        let someView = ContentView(imageStore: testImageStore)
+        return someView
     }
 }

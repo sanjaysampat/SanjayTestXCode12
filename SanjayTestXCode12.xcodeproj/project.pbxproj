@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		72450F2724B99D4C00934892 /* SwiftUIViewPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72450F2624B99D4C00934892 /* SwiftUIViewPhotoPicker.swift */; };
 		72450F2824B99D4C00934892 /* SwiftUIViewPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72450F2624B99D4C00934892 /* SwiftUIViewPhotoPicker.swift */; };
+		72450F2D24BA028E00934892 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72450F2C24BA028E00934892 /* ImageStore.swift */; };
+		72450F2E24BA028E00934892 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72450F2C24BA028E00934892 /* ImageStore.swift */; };
 		7274EB4C24AB96510046FF69 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7274EB4B24AB96510046FF69 /* Tests_iOS.swift */; };
 		7274EB5724AB96510046FF69 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7274EB5624AB96510046FF69 /* Tests_macOS.swift */; };
 		7274EB5924AB96510046FF69 /* SanjayTestXCode12App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7274EB3024AB96290046FF69 /* SanjayTestXCode12App.swift */; };
@@ -39,6 +41,7 @@
 /* Begin PBXFileReference section */
 		72450F2624B99D4C00934892 /* SwiftUIViewPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewPhotoPicker.swift; sourceTree = "<group>"; };
 		72450F2B24B9E0A700934892 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		72450F2C24BA028E00934892 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		7274EB3024AB96290046FF69 /* SanjayTestXCode12App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanjayTestXCode12App.swift; sourceTree = "<group>"; };
 		7274EB3124AB96290046FF69 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7274EB3224AB96510046FF69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 				7274EB3124AB96290046FF69 /* ContentView.swift */,
 				7274EB3224AB96510046FF69 /* Assets.xcassets */,
 				72450F2624B99D4C00934892 /* SwiftUIViewPhotoPicker.swift */,
+				72450F2C24BA028E00934892 /* ImageStore.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -317,6 +321,7 @@
 				7274EB5B24AB96510046FF69 /* ContentView.swift in Sources */,
 				72450F2724B99D4C00934892 /* SwiftUIViewPhotoPicker.swift in Sources */,
 				7274EB5924AB96510046FF69 /* SanjayTestXCode12App.swift in Sources */,
+				72450F2D24BA028E00934892 /* ImageStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +332,7 @@
 				7274EB5C24AB96510046FF69 /* ContentView.swift in Sources */,
 				72450F2824B99D4C00934892 /* SwiftUIViewPhotoPicker.swift in Sources */,
 				7274EB5A24AB96510046FF69 /* SanjayTestXCode12App.swift in Sources */,
+				72450F2E24BA028E00934892 /* ImageStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
