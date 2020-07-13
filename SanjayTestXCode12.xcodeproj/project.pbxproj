@@ -19,6 +19,10 @@
 		7274EB5C24AB96510046FF69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7274EB3124AB96290046FF69 /* ContentView.swift */; };
 		7274EB5D24AB96510046FF69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7274EB3224AB96510046FF69 /* Assets.xcassets */; };
 		7274EB5E24AB96510046FF69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7274EB3224AB96510046FF69 /* Assets.xcassets */; };
+		72C8AE7124BC5E350060E9A3 /* PhPickerWithPhotoKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8AE7024BC5E350060E9A3 /* PhPickerWithPhotoKit.swift */; };
+		72C8AE7224BC5E350060E9A3 /* PhPickerWithPhotoKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8AE7024BC5E350060E9A3 /* PhPickerWithPhotoKit.swift */; };
+		72C8AE7424BC938B0060E9A3 /* ItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8AE7324BC938B0060E9A3 /* ItemImage.swift */; };
+		72C8AE7524BC938B0060E9A3 /* ItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8AE7324BC938B0060E9A3 /* ItemImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,8 @@
 		7274EB5224AB96510046FF69 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7274EB5624AB96510046FF69 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		7274EB5824AB96510046FF69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72C8AE7024BC5E350060E9A3 /* PhPickerWithPhotoKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhPickerWithPhotoKit.swift; sourceTree = "<group>"; };
+		72C8AE7324BC938B0060E9A3 /* ItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,8 @@
 				7274EB3224AB96510046FF69 /* Assets.xcassets */,
 				72450F2624B99D4C00934892 /* SwiftUIViewPhotoPicker.swift */,
 				72450F2C24BA028E00934892 /* ImageStore.swift */,
+				72C8AE7024BC5E350060E9A3 /* PhPickerWithPhotoKit.swift */,
+				72C8AE7324BC938B0060E9A3 /* ItemImage.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -319,8 +327,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7274EB5B24AB96510046FF69 /* ContentView.swift in Sources */,
+				72C8AE7124BC5E350060E9A3 /* PhPickerWithPhotoKit.swift in Sources */,
 				72450F2724B99D4C00934892 /* SwiftUIViewPhotoPicker.swift in Sources */,
 				7274EB5924AB96510046FF69 /* SanjayTestXCode12App.swift in Sources */,
+				72C8AE7424BC938B0060E9A3 /* ItemImage.swift in Sources */,
 				72450F2D24BA028E00934892 /* ImageStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,8 +340,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7274EB5C24AB96510046FF69 /* ContentView.swift in Sources */,
+				72C8AE7224BC5E350060E9A3 /* PhPickerWithPhotoKit.swift in Sources */,
 				72450F2824B99D4C00934892 /* SwiftUIViewPhotoPicker.swift in Sources */,
 				7274EB5A24AB96510046FF69 /* SanjayTestXCode12App.swift in Sources */,
+				72C8AE7524BC938B0060E9A3 /* ItemImage.swift in Sources */,
 				72450F2E24BA028E00934892 /* ImageStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

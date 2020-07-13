@@ -9,12 +9,12 @@ import Foundation
 import PhotosUI
 
 class ImageStore: ObservableObject {
-    var images: [UIImage]?
+    var images: [ItemImage]
     
-    init( images: [UIImage]? = [] ) {
+    init( images: [ItemImage] = [] ) {
         self.images = images
     }
 }
 
-var imageArray: [UIImage]?
+var imageArray: [ItemImage] = []
 let testImageStore = ImageStore( images: imageArray )
