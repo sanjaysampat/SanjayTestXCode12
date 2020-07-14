@@ -12,6 +12,9 @@ struct ContentView: View {
     
     @State private var isPresented: Bool = false
     @State private var isPresentedPhPickerWithPhotoKit: Bool = false
+    @State private var myAuthorizationStatus: PHAuthorizationStatus = .notDetermined
+    @State private var myAuthorizationMessage = "Authorization status not found"
+    @State private var myAuthorizationSystemImage = "hand.raised"
     @State var imageArray: [ItemImage] = []
     @ObservedObject var imageStore: ImageStore
     
@@ -23,12 +26,13 @@ struct ContentView: View {
                 Text("nice to see you")
                 HStack {
                     Spacer()
-                    Label("Tap on one of following buttons", systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/)
+                    Label("App to select photos and display at bottom in LazyHGrid", systemImage: "forward")
                         .padding(.all, 5)
                         .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.888, green: 0.815, blue: 0.679)/*@END_MENU_TOKEN@*/)
                         .multilineTextAlignment(.center)
                         .lineLimit(nil)
                         .font(/*@START_MENU_TOKEN@*/.body/*@END_MENU_TOKEN@*/)
+                        .labelStyle(CenteredLabelStyle())
                     Spacer()
                 }
             }
@@ -36,7 +40,29 @@ struct ContentView: View {
             
             VStack {
                 HStack {
+                    Button("Grant Access") {
+                        // system prompts user, if user has not choose any option.
+                        let accessLevel: PHAccessLevel = .readWrite
+                        PHPhotoLibrary.requestAuthorization(for: accessLevel) { authorizationStatus in
+                            myAuthorizationStatus = authorizationStatus
+                            switch myAuthorizationStatus {
+                            case PHAuthorizationStatus.limited:
+                                myAuthorizationMessage = "Limited Authorization"
+                                myAuthorizationSystemImage = "photo"
+                            case PHAuthorizationStatus.authorized:
+                                myAuthorizationMessage = "Full Authorization"
+                                myAuthorizationSystemImage = "hand.thumbsup"
+                            default:
+                                myAuthorizationMessage = "Please grant access from Settings->Privacy->Photos->SanjayTestXcode12"
+                                myAuthorizationSystemImage = "hand.raised"
+                            }
+                        }
+                    }
+                    
                     Spacer()
+                    /*
+                    // currently not getting access to photos.
+                    // https://developer.apple.com/forums/thread/654021
                     Button("Select Image") {
                                 isPresented.toggle()
                             }.sheet(isPresented: $isPresented) {
@@ -48,36 +74,69 @@ struct ContentView: View {
                     .cornerRadius(10.0)
                     .clipped(antialiased: true)
                     Spacer()
+                     */
+
+                    Button("PhPickerWithPhotoKit") {
+                        let accessLevel: PHAccessLevel = .readWrite
+                        myAuthorizationStatus = PHPhotoLibrary.authorizationStatus(for: accessLevel)
+                        if myAuthorizationStatus == .authorized || myAuthorizationStatus == .limited {
+                            isPresentedPhPickerWithPhotoKit.toggle()
+                        } else {
+                            PHPhotoLibrary.requestAuthorization(for: accessLevel) { authorizationStatus in
+                                myAuthorizationStatus = authorizationStatus
+                                switch myAuthorizationStatus {
+                                case PHAuthorizationStatus.limited:
+                                    myAuthorizationMessage = "Limited Authorization"
+                                    myAuthorizationSystemImage = "photo"
+                                case PHAuthorizationStatus.authorized:
+                                    myAuthorizationMessage = "Full Authorization"
+                                    myAuthorizationSystemImage = "hand.thumbsup"
+                                default:
+                                    myAuthorizationMessage = "Please grant access from Settings->Privacy->Photos->SanjayTestXcode12"
+                                    myAuthorizationSystemImage = "hand.raised"
+                                }
+                                if authorizationStatus == .authorized || authorizationStatus == .limited {
+                                    isPresentedPhPickerWithPhotoKit.toggle()
+                                }
+                            }
+                        }
+                    }.sheet(isPresented: $isPresentedPhPickerWithPhotoKit) {
+                        PhPickerWithPhotoKit(isPresentedPhPickerWithPhotoKit: $isPresentedPhPickerWithPhotoKit, imageArray : $imageArray )
+                    }
+                    .padding(.all, 5)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.white/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(10.0)
+                    .clipped(antialiased: true)
                 }
             }
             .padding(5)
-
+            
             VStack(alignment: .center) {
-                Button("PhPickerWithPhotoKit") {
-                    isPresentedPhPickerWithPhotoKit.toggle()
-                        }.sheet(isPresented: $isPresentedPhPickerWithPhotoKit) {
-                            PhPickerWithPhotoKit(isPresentedPhPickerWithPhotoKit: $isPresentedPhPickerWithPhotoKit, imageArray : $imageArray )
-                        }
-                .padding(.all, 5)
-                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.white/*@END_MENU_TOKEN@*/)
-                .cornerRadius(10.0)
-                .clipped(antialiased: true)
                 
-                Label("Will ask access to full size photos.", systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/)
+                Label("\(myAuthorizationMessage)", systemImage:myAuthorizationSystemImage)
                     .padding(.all, 5)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.888, green: 0.815, blue: 0.679)/*@END_MENU_TOKEN@*/)
                     .multilineTextAlignment(.center)
                     .lineLimit(nil)
                     .font(.footnote)
+                    .labelStyle(CenteredLabelStyle())
+                
+                Label("If access for the selected photo is not given then will show thumbnail quality photo.", systemImage: "info.circle")
+                    .padding(.all, 5)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.888, green: 0.815, blue: 0.679)/*@END_MENU_TOKEN@*/)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(nil)
+                    .font(.footnote)
+                    .labelStyle(CenteredLabelStyle())
                 /*
-                Button("Select Multi Images") {
-                            isPresented.toggle()
-                        }.sheet(isPresented: $isPresented) {
-                            var configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
-                            configuration.selectionLimit = 0
-                            SwiftUIViewPhotoPicker(configuration: configuration, isPresented: $isPresented, imageArray : $imageArray )
-                    }
-                */
+                 Button("Select Multi Images") {
+                 isPresented.toggle()
+                 }.sheet(isPresented: $isPresented) {
+                 var configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
+                 configuration.selectionLimit = 0
+                 SwiftUIViewPhotoPicker(configuration: configuration, isPresented: $isPresented, imageArray : $imageArray )
+                 }
+                 */
                 
             }
             .padding(5)
@@ -130,5 +189,14 @@ struct ContentView_Previews: PreviewProvider {
         */
         let someView = ContentView(imageStore: testImageStore)
         return someView
+    }
+}
+
+struct CenteredLabelStyle: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.icon
+            configuration.title
+        }
     }
 }

@@ -72,11 +72,16 @@ struct PhPickerWithPhotoKit: UIViewControllerRepresentable {
                                                       contentMode: .default,
                                                       options: opts,
                                                       resultHandler: { (image, info) in
+                                                        
+                                                        // SSTODO - to find how can we get if we are getting low resolution image in case of no image authorization. ( info key PHImageResultIsDegradedKey is giving same for authorized and no-access images )
+                                                        
                                                         if let image = image {
+                                                            //print("mage info \(String(describing: info))")
                                                             self.parent.imageArray.append(ItemImage(image: image))
                                                         } else {
                                                             print("Could not load image \(String(describing: info))")
                                                         }
+                                                        
                                                       })
             }
             
