@@ -63,7 +63,7 @@ struct ContentView: View {
                 .cornerRadius(10.0)
                 .clipped(antialiased: true)
                 
-                Label("Will ask access to full size photos, if any of the selected photo does not have access.", systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/)
+                Label("Will ask access to full size photos.", systemImage: /*@START_MENU_TOKEN@*/""/*@END_MENU_TOKEN@*/)
                     .padding(.all, 5)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.888, green: 0.815, blue: 0.679)/*@END_MENU_TOKEN@*/)
                     .multilineTextAlignment(.center)
@@ -85,11 +85,12 @@ struct ContentView: View {
             //var rows: [GridItem] =
             //        Array(repeating: .init(.fixed(200)), count: 1)
             let layout = [
-                    GridItem(.adaptive(minimum:50))
+                    //GridItem(.adaptive(minimum:50))
+                GridItem(.fixed(250))
                 ]
             
             ScrollView(.horizontal) {
-                LazyHGrid(rows: layout, alignment: .top) {
+                LazyHGrid(rows: layout, alignment: .center) {
                     /*
                     ForEach((0...79), id: \.self) {
                         let codepoint = $0 + 0x1f600
@@ -99,11 +100,12 @@ struct ContentView: View {
                     }
                     */
                         ForEach(imageArray, id: \.self) { item in
+                            //Text("\(item.id)")
                             Image(uiImage: item.image)
                                 .resizable(capInsets: /*@START_MENU_TOKEN@*/EdgeInsets()/*@END_MENU_TOKEN@*/, resizingMode: .stretch)
                                 .antialiased(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 200, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .frame(width: 250, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .clipped()
                                 
                             
