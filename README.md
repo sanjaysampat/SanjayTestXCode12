@@ -16,7 +16,7 @@ Common project creation to learn.
     * Commit, Push, Fetch from XCode
 
 3. PHPhotoPicker
-* Single image selection with PHPickerResult using .itemProvider. There is issue of access permission ( code is commented. )
+    * Single image selection with PHPickerResult using .itemProvider. There is issue of access permission ( code is commented. )
     * Multiple images selection with PHAsset withLocalIdentifiers. Access permission is asked to user when we try to get full size original selected image. If permission is not granted then we get thumbnail size low quality image.
     * When we tried to call PHPhotoLibrary.requestAuthorization, system decides to show prompt to user, if user has not permitted earlier, system will not show the prompt. So we have shown message label to user to grand permission via iOS settings. 
 
